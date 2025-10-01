@@ -1,10 +1,10 @@
 :root {
-  --bg: #0b0b0c;
-  --panel: #121214;
-  --text: #e7e7ea;
-  --muted: #b3b3bb;
-  --brand: #f2cf66; /* warm accent like stage light */
-  --line: #242427;
+  --bg: #0b1220; /* deep navy instead of near-black */
+  --panel: #121a2a;
+  --text: #e9edf6;
+  --muted: #b7c0d4;
+  --brand: #f1c453; /* refined amber */
+  --line: #1e2a3a;
   --radius: 14px;
 }
 
@@ -25,6 +25,128 @@ body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
   line-height: 1.6;
+}
+
+/* Background themes (toggle by adding classes to body) */
+body.bg-spotlight {
+  background: radial-gradient(
+      900px 480px at 20% -120px,
+      rgba(242, 207, 102, 0.1),
+      rgba(0, 0, 0, 0)
+    ),
+    var(--bg);
+}
+body.bg-vignette {
+  background: radial-gradient(
+      1200px 600px at 50% -240px,
+      rgba(255, 255, 255, 0.06),
+      rgba(0, 0, 0, 0)
+    ),
+    var(--bg);
+}
+body.bg-paper {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><filter id="p"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23p)" opacity="0.04"/></svg>')
+      repeat,
+    var(--bg);
+  background-size: 520px 520px;
+}
+
+/* Starlight theme */
+body.bg-starlight {
+  /* deep space base with a subtle top glow */
+  background: radial-gradient(
+      1000px 600px at 50% -200px,
+      rgba(255, 255, 255, 0.06),
+      rgba(0, 0, 0, 0)
+    ),
+    #0a0e18;
+}
+/* Tiny starfield pattern layer */
+body.bg-starlight:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220"><rect width="100%" height="100%" fill="none"/><g fill="white" opacity="0.14"><circle cx="14" cy="28" r="0.8"/><circle cx="44" cy="98" r="0.6"/><circle cx="88" cy="18" r="0.7"/><circle cx="120" cy="64" r="0.9"/><circle cx="168" cy="22" r="0.7"/><circle cx="200" cy="120" r="0.8"/><circle cx="60" cy="160" r="0.9"/><circle cx="24" cy="196" r="0.6"/><circle cx="140" cy="180" r="0.7"/><circle cx="190" cy="200" r="0.6"/></g></svg>');
+  background-size: 220px 220px;
+  z-index: 0;
+}
+/* Ensure content stays above starfield and grain */
+body.bg-starlight .grain {
+  mix-blend-mode: soft-light;
+  z-index: 1;
+}
+body.bg-starlight .hero-inner,
+body.bg-starlight .site-header,
+body.bg-starlight main,
+body.bg-starlight footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* Black theme */
+body.bg-black {
+  background: #0b0b0c;
+}
+body.bg-black .grain {
+  display: none;
+}
+body.bg-black .hero:before {
+  content: none;
+}
+
+/* Two-column hero */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: center;
+}
+.hero-copy {
+  text-align: left;
+}
+.hero-media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-figure {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.45));
+}
+@media (min-width: 980px) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+  .hero-media {
+    display: flex;
+    height: 420px;
+    border-radius: var(--radius);
+
+    background: transparent;
+  }
+}
+
+/* Hide empty hero-media */
+.hero-media:empty {
+  display: none;
+}
+
+/* Subtle hero vignette overlay */
+.hero:before {
+  content: "";
+  position: absolute;
+  inset: 0 -20vw;
+  pointer-events: none;
+  background: radial-gradient(
+    70% 70% at 20% 0%,
+    rgba(255, 255, 255, 0.06),
+    rgba(0, 0, 0, 0)
+  );
+  opacity: 0.8;
 }
 
 .container {
@@ -67,6 +189,9 @@ body {
   letter-spacing: 0.5px;
   color: var(--text);
   text-decoration: none;
+}
+#logo-ashish {
+  height: 50px;
 }
 .nav {
   display: none;
@@ -285,7 +410,7 @@ body {
 }
 .card:hover {
   transform: translateY(-3px);
-  border-color: #33333a;
+  border-color: #27374d;
 }
 .card-media {
   height: 180px;
@@ -517,4 +642,246 @@ h3 {
 }
 p {
   max-width: 720px;
+}
+
+/* Social Media Panel */
+.social-panel {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.social-link:hover {
+  background: var(--brand);
+  color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(241, 196, 83, 0.3);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.social-link::after {
+  content: "";
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 1px;
+  background: var(--brand);
+  transition: width 0.3s ease;
+}
+
+.social-link:hover::after {
+  width: 20px;
+}
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+  .social-panel {
+    display: none;
+  }
+}
+
+/* Admin */
+.admin-fab {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+  background: var(--brand);
+  color: #1a1a1a;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+.admin-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+.admin-panel {
+  width: min(980px, 96vw);
+  max-height: 88vh;
+  overflow: auto;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  color: var(--text);
+}
+.admin-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.admin-panel h3 {
+  margin: 8px 0;
+}
+.admin-panel input,
+.admin-panel textarea,
+.admin-panel select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #0f0f11;
+  border: 1px solid var(--line);
+  color: var(--text);
+  font: inherit;
+}
+.admin-list {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0;
+}
+.admin-item {
+  display: grid;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0)
+  );
+}
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.admin-muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.admin-tab {
+  border: 1px solid var(--line);
+  background: #0f0f11;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.admin-tab[aria-selected="true"] {
+  background: var(--brand);
+  color: #1a1a1a;
+  border-color: transparent;
+}
+
+/* Admin button styles - ensure visibility */
+.admin-panel .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  min-height: 36px;
+}
+
+.admin-panel .btn-primary {
+  background: var(--brand);
+  color: #1a1a1a;
+  border-color: var(--brand);
+}
+.admin-panel .btn-primary:hover {
+  background: #e6b842;
+  border-color: #e6b842;
+  transform: translateY(-1px);
+}
+
+.admin-panel .btn-outline {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line);
+}
+.admin-panel .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #3a3a3f;
+  color: var(--text);
+}
+
+/* Specific button visibility fixes */
+.admin-panel .btn[style*="color:#e56"] {
+  background: transparent !important;
+  color: #e56 !important;
+  border-color: #e56 !important;
+}
+.admin-panel .btn[style*="color:#e56"]:hover {
+  background: rgba(238, 85, 102, 0.1) !important;
+  border-color: #e56 !important;
+  color: #e56 !important;
+}
+
+/* Ensure all admin buttons are visible */
+.admin-actions .btn {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-flex !important;
+}
+
+/* Import button styling */
+.admin-panel label.btn {
+  cursor: pointer;
+  position: relative;
+}
+.admin-panel label.btn input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }

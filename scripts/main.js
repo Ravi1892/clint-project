@@ -44,11 +44,11 @@ revealTargets.forEach((el) => io.observe(el));
 
 // Typewriter rotating roles
 const roles = [
-  "Screenwriter",
-  "Story Architect",
-  "Dialogue Specialist",
-  "Script Doctor",
-  "Pitch Writer",
+  "Screenwriter ",
+  "Story Architect ",
+  "Dialogue Specialist ",
+  "Script Doctor ",
+  "Pitch Writer ",
 ];
 const rolesContainer = document.querySelector(".roles");
 const cursorEl = document.querySelector(".tw-cursor");
@@ -59,22 +59,27 @@ let current = "";
 
 function stepTypewriter() {
   const target = roles[roleIndex % roles.length];
+  let delay;
+
   if (!deleting) {
     current = target.slice(0, charIndex + 1);
     charIndex++;
     if (current === target) {
       deleting = true;
-      setTimeout(stepTypewriter, 1400);
-      return;
+      delay = 1400; // pause at full word
+    } else {
+      delay = 90;
     }
   } else {
-    current = target.slice(0, charIndex - 1);
+    current = target.slice(0, Math.max(0, charIndex - 1));
     charIndex--;
     if (charIndex === 0) {
       deleting = false;
       roleIndex++;
     }
+    delay = 45;
   }
+
   if (rolesContainer) {
     rolesContainer.firstChild &&
     rolesContainer.firstChild.nodeType === Node.TEXT_NODE
@@ -84,33 +89,12 @@ function stepTypewriter() {
           cursorEl || null
         );
   }
-  const delay = deleting ? 35 : 70;
+
   setTimeout(stepTypewriter, delay);
 }
 
 if (rolesContainer) {
-  setTimeout(stepTypewriter, 800);
+  setTimeout(stepTypewriter, 1000);
 }
 
-// Basic form handling fallback (Netlify attr present for static hosting)
-const form = document.querySelector(".contact-form");
-if (form) {
-  form.addEventListener("submit", async (e) => {
-    // Let Netlify handle if deployed there; otherwise prevent default to demo success.
-    if (!location.host.includes("netlify")) {
-      e.preventDefault();
-      const button = form.querySelector('button[type="submit"]');
-      const original = button.textContent;
-      button.disabled = true;
-      button.textContent = "Sending…";
-      setTimeout(() => {
-        button.textContent = "Sent ✓";
-        setTimeout(() => {
-          button.textContent = original;
-          button.disabled = false;
-          form.reset();
-        }, 1200);
-      }, 900);
-    }
-  });
-}
+// Form handling moved to admin.js for message storage

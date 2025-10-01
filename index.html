@@ -29,17 +29,33 @@
     <link rel="icon" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="bg-starlight">
     <div class="grain"></div>
+
+    <!-- Social Media Panel -->
+    <div class="social-panel" id="social-panel">
+      <div class="social-links" id="social-links-panel">
+        <!-- Populated by admin.js -->
+      </div>
+    </div>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#">Ashish</a>
+        <a class="brand" href="#"
+          ><img
+            id="logo-ashish"
+            src="/assets/generated-image__3_-removebg-preview.png"
+            alt=""
+        /></a>
         <nav class="nav">
           <a href="#work">Work</a>
           <a href="#services">Services</a>
           <a href="#about">About</a>
-          <a href="#contact" class="btn btn-outline">Contact</a>
+          <a
+            href="#contact"
+            class="btn -REMOVE THIS- btn -REMOVE THIS- -outline"
+            >Contact</a
+          >
         </nav>
         <button class="menu-toggle" aria-label="Open menu">
           <span></span><span></span>
@@ -50,24 +66,37 @@
     <main>
       <section class="hero" id="home">
         <div class="container hero-inner">
-          <div class="eyebrow reveal-up">Screenwriter • Story Architect</div>
-          <h1 class="headline reveal-up">
-            Words that move <span class="underline">audiences</span>.
-          </h1>
-          <p class="subhead reveal-up">
-            I’m Ashish, a professional script writer shaping character-driven
-            narratives for film, TV, web series, and branded storytelling. I
-            help directors, producers, and founders translate vision into
-            scripts that land.
-          </p>
-          <div class="cta-row reveal-up">
-            <a href="#contact" class="btn btn-primary magnetic"
-              >Start a project</a
-            >
-            <a href="#work" class="btn btn-link">See selected work →</a>
-          </div>
-          <div class="roles typewriter reveal-up" aria-label="roles">
-            <span class="tw-cursor" aria-hidden="true"></span>
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow reveal-up">
+                Screenwriter • Story Architect
+              </div>
+              <h1 class="headline reveal-up">
+                Words that move <span class="underline">audiences</span>.
+              </h1>
+              <p class="subhead reveal-up">
+                I’m Ashish, a professional script writer shaping
+                character-driven narratives for film, TV, web series, and
+                branded storytelling. I help directors, producers, and founders
+                translate vision into scripts that land.
+              </p>
+              <div class="cta-row reveal-up">
+                <a href="#contact" class="btn btn-primary magnetic"
+                  >Start a project</a
+                >
+                <a href="#work" class="btn btn-link">See selected work →</a>
+              </div>
+              <div class="roles typewriter reveal-up" aria-label="roles">
+                <span class="tw-cursor" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="hero-media reveal-fade">
+              <img
+                class="hero-figure"
+                src="assets/generated-image-removebg-preview.png"
+                alt="Describe image"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -95,60 +124,8 @@
             </p>
           </div>
 
-          <div class="grid">
-            <article class="card reveal-fade">
-              <div
-                class="card-media"
-                style="background-image: url('assets/work-1.jpg')"
-              ></div>
-              <div class="card-body">
-                <h3>Echoes of Dust</h3>
-                <p>
-                  Feature screenplay • Neo-western drama about legacy, land, and
-                  the lies we inherit.
-                </p>
-                <div class="meta">
-                  <span>Feature • 108 pages</span>
-                  <span>Final Draft</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="card reveal-fade">
-              <div
-                class="card-media"
-                style="background-image: url('assets/work-2.jpg')"
-              ></div>
-              <div class="card-body">
-                <h3>Cut to Black</h3>
-                <p>
-                  TV pilot • A disgraced editor returns to the cutting room to
-                  fix more than footage.
-                </p>
-                <div class="meta">
-                  <span>Pilot • 58 pages</span>
-                  <span>Series Bible</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="card reveal-fade">
-              <div
-                class="card-media"
-                style="background-image: url('assets/work-3.jpg')"
-              ></div>
-              <div class="card-body">
-                <h3>Room Tone</h3>
-                <p>
-                  Short film • Silence becomes the loudest character in a
-                  claustrophobic thriller.
-                </p>
-                <div class="meta">
-                  <span>Short • 12 pages</span>
-                  <span>Festival Winner</span>
-                </div>
-              </div>
-            </article>
+          <div class="grid" id="work-grid">
+            <!-- populated by admin.js -->
           </div>
         </div>
       </section>
@@ -162,35 +139,8 @@
               and brands.
             </p>
           </div>
-          <div class="service-list">
-            <div class="service-item reveal-fade">
-              <h3>Original Screenwriting</h3>
-              <p>
-                Feature, pilot, and short film scripts. Genre-forward with
-                character-first storytelling.
-              </p>
-            </div>
-            <div class="service-item reveal-fade">
-              <h3>Script Doctoring</h3>
-              <p>
-                Diagnostics, rewrites, and scene-level punch-ups to sharpen
-                structure and dialogue.
-              </p>
-            </div>
-            <div class="service-item reveal-fade">
-              <h3>Pitch & Deck Writing</h3>
-              <p>
-                Loglines, synopses, treatments, and pitch materials that sell
-                the vision.
-              </p>
-            </div>
-            <div class="service-item reveal-fade">
-              <h3>Branded Storytelling</h3>
-              <p>
-                Narratives for campaigns, founder films, and content with
-                cinematic craft.
-              </p>
-            </div>
+          <div class="service-list" id="services-list">
+            <!-- populated by admin.js -->
           </div>
         </div>
       </section>
@@ -288,7 +238,7 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <span>© <span id="year"></span> Ashish. All rights reserved.</span>
-        <div class="socials">
+        <div class="socials" id="socials">
           <a href="#" aria-label="IMDB">IMDB</a>
           <a href="#" aria-label="LinkedIn">LinkedIn</a>
           <a href="#" aria-label="Email">Email</a>
@@ -296,6 +246,70 @@
       </div>
     </footer>
 
+    <!-- Defaults for first run -->
+    <script type="application/json" id="site-defaults">
+      {
+        "projects": [
+          {
+            "title": "Echoes of Dust",
+            "desc": "Feature screenplay • Neo-western drama about legacy, land, and the lies we inherit.",
+            "metaLeft": "Feature • 108 pages",
+            "metaRight": "Final Draft",
+            "image": "assets/work-1.jpg"
+          },
+          {
+            "title": "Cut to Black",
+            "desc": "TV pilot • A disgraced editor returns to the cutting room to fix more than footage.",
+            "metaLeft": "Pilot • 58 pages",
+            "metaRight": "Series Bible",
+            "image": "assets/work-2.jpg"
+          },
+          {
+            "title": "Room Tone",
+            "desc": "Short film • Silence becomes the loudest character in a claustrophobic thriller.",
+            "metaLeft": "Short • 12 pages",
+            "metaRight": "Festival Winner",
+            "image": "assets/work-3.jpg"
+          }
+        ],
+        "services": [
+          {
+            "title": "Original Screenwriting",
+            "desc": "Feature, pilot, and short film scripts. Genre-forward with character-first storytelling."
+          },
+          {
+            "title": "Script Doctoring",
+            "desc": "Diagnostics, rewrites, and scene-level punch-ups to sharpen structure and dialogue."
+          },
+          {
+            "title": "Pitch & Deck Writing",
+            "desc": "Loglines, synopses, treatments, and pitch materials that sell the vision."
+          },
+          {
+            "title": "Branded Storytelling",
+            "desc": "Narratives for campaigns, founder films, and content with cinematic craft."
+          }
+        ],
+        "socials": [
+          { "label": "IMDB", "url": "#" },
+          { "label": "LinkedIn", "url": "#" },
+          { "label": "Email", "url": "#" }
+        ]
+      }
+    </script>
+
+    <!-- Admin UI root and button -->
+    <div id="admin-root" aria-hidden="true"></div>
+    <button
+      id="admin-open"
+      class="admin-fab"
+      style="display: none"
+      aria-label="Open admin"
+    >
+      Admin
+    </button>
+
     <script src="scripts/main.js"></script>
+    <script src="scripts/admin.js"></script>
   </body>
 </html>

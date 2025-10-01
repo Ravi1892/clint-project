@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" role="img" aria-label="Illustration of a screenwriter at desk" width="520" height="520">
+  <!-- No background; uses strokes and subtle fills that blend on dark UI -->
+  <defs>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f2cf66"/>
+      <stop offset="100%" stop-color="#e6b84a"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d5d7de" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#9aa0ac" stop-opacity="0.7"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="circleMask">
+      <circle cx="260" cy="260" r="240"/>
+    </clipPath>
+  </defs>
+
+  <!-- Circular framing to feel premium; uses thin lines to blend over dark bg -->
+  <g clip-path="url(#circleMask)">
+    <circle cx="260" cy="260" r="238" fill="none" stroke="#30343c" stroke-width="2"/>
+
+    <!-- Desk line -->
+    <path d="M40 340 H480" stroke="#3a3f48" stroke-width="2"/>
+
+    <!-- Script pages -->
+    <g filter="url(#soft)">
+      <rect x="170" y="260" rx="6" ry="6" width="220" height="140" fill="#0f1116" stroke="#2c3038"/>
+      <rect x="180" y="250" rx="6" ry="6" width="220" height="140" fill="#12141a" stroke="#2c3038"/>
+      <rect x="190" y="240" rx="6" ry="6" width="220" height="140" fill="#151821" stroke="#2c3038"/>
+      <line x1="200" y1="270" x2="390" y2="270" stroke="#616774" stroke-width="1"/>
+      <line x1="200" y1="290" x2="380" y2="290" stroke="#545a68" stroke-width="1"/>
+      <line x1="200" y1="310" x2="370" y2="310" stroke="#4a505e" stroke-width="1"/>
+      <line x1="200" y1="330" x2="360" y2="330" stroke="#414757" stroke-width="1"/>
+    </g>
+
+    <!-- Hand + pen (stylized) -->
+    <path d="M160 310 C180 305, 210 300, 230 310 C245 318, 250 332, 240 338 C225 347, 195 350, 175 342 C160 335, 150 322, 160 310 Z" fill="#1b1f28" stroke="#2e3440"/>
+    <path d="M232 302 L320 256" stroke="url(#ink)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M320 256 L338 246" stroke="url(#ink)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M338 246 L350 260" stroke="#f2cf66" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Coffee cup -->
+    <ellipse cx="130" cy="300" rx="26" ry="10" fill="#2a2f39"/>
+    <rect x="104" y="274" width="52" height="24" rx="8" fill="#2f3440" stroke="#394050"/>
+    <ellipse cx="130" cy="274" rx="26" ry="10" fill="#2a2f39" stroke="#394050"/>
+
+    <!-- Laptop silhouette -->
+    <rect x="80" y="210" width="160" height="90" rx="8" fill="#11141a" stroke="#2c3038"/>
+    <rect x="70" y="300" width="180" height="10" rx="2" fill="#0e1016" stroke="#2c3038"/>
+
+    <!-- Soft highlight arcs -->
+    <path d="M70 120 A220 220 0 0 1 440 140" fill="none" stroke="url(#steel)" stroke-width="2" opacity="0.35"/>
+    <path d="M60 170 A240 240 0 0 1 460 190" fill="none" stroke="url(#steel)" stroke-width="2" opacity="0.22"/>
+  </g>
+</svg> 
